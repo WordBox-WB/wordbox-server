@@ -1,0 +1,78 @@
+### Post api calls
+### Author Otitoju John
+@hostname = localhost
+@port = 4004
+@contentType = application/json
+@host = {{hostname}}:{{port}}
+
+### POST API TESTING
+
+### GET all posts
+GET http://{{host}}/api/v1/posts HTTP/1.1
+
+### CREATE new post
+POST http://{{host}}/api/v1/post/create HTTP/1.1
+Content-Type: {{contentType}}
+
+{
+    "title": "test4",
+    "content": "test4 content"
+}
+
+### GET single post by id
+GET http://{{host}}/api/v1/post/5f0d72e6d04dda2b081ed67b
+
+### DELETE a post
+DELETE http://{{host}}/api/v1/delete/post/5f0d7396d04dda2b081ed67c
+
+### UPDATE POST
+PUT http://{{host}}/api/v1/update/post/5f0d72e6d04dda2b081ed67b
+Content-Type: {{contentType}}
+
+{
+    "title": "test5"
+}
+
+### COMMENT API TESTING
+### Create new comment
+POST http://{{host}}/api/v1/newcomment/5f0d7396d04dda2b081ed67c HTTP/1.1
+Content-Type: {{contentType}}
+
+{
+    "name": "John Doe",
+    "text": "Nice one by john doe"
+}
+
+### GET all comments
+GET http://{{host}}/api/v1/comments
+
+### GET SINGLE COMMENT
+GET http://{{host}}/api/v1/comment/5f0ed5f0f1f79206e09559a0
+
+### DELETE
+DELETE http://{{host}}/api/v1/delete/comment/5f0ed5f0f1f79206e09559a0
+
+### GET ALL AUTHORS
+GET http://{{host}}/api/v1/authors
+
+### Login by Author
+POST http://{{host}/api/v1/author/login HTTP/1.1
+Content-Type: {{contentType}}
+
+{
+    "email": "author1@gmail.com",
+    "password": "123456"
+}
+
+### Like post
+PUT http://{{host}}/api/v1/post/like/5f0d72e6d04dda2b081ed67b/5f115d78ce0efe211cfa82ee
+Content-Type: {{contentType}}
+
+### unlike post
+PUT http://{{host}}/api/v1/post/unlike/5f0d72e6d04dda2b081ed67b/5f115db7ce0efe211cfa82ef
+Content-Type: {{contentType}}
+
+### choose favourite post
+PUT http://{{host}}/api/v1/favourites/5f115db7ce0efe211cfa82ef/5f115e39ce0efe211cfa82f0
+Content-Type: {{contentType}}
+
